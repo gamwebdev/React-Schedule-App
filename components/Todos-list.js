@@ -1,17 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import TodosListHeader from './todos-list-header'
 
 export default class TodosList extends React.Component{
+
 	render(){
+		console.log(this.props);
 		return(
 			<table>
-				<thead>
-					<tr>
-						<th>Task</th>
-						<th>Action</th>
-					</tr>
-				</thead>
-			</table>	
+				<TodosList-header />
+			</table>
 		);
 	}
 }
