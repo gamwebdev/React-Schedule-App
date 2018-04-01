@@ -6,7 +6,7 @@ import TodosList from './todos-list';
 
 const todos = [
 	{
-		task:'make React Tut',
+		task:'play',
 		isCompleted: false
 	},
 	{
@@ -28,7 +28,7 @@ export default class App extends React.Component{
 		return(
 			<div>
 				<h1> React ToDos App</h1>
-				<CreateTodoList create={this.create.bind(this)}/>
+				<CreateTodoList todos={this.state.todos} create={this.create.bind(this)}/>
 				<br />
 				<TodosList todos={this.state.todos} 
 						   toggleTask={this.toggleTask.bind(this)}
