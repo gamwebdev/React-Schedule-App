@@ -24,7 +24,7 @@ export default class TodosListItem extends React.Component{
 		return(
 			<td>
 				<button onClick={this.onEditClick.bind(this)}> Edit </button>
-				<button> Delete </button>
+				<button onClick= {this.props.deleteTask.bind(this, this.props.task)}> Delete </button>
 			</td>	
 		);
 	}
@@ -44,7 +44,7 @@ export default class TodosListItem extends React.Component{
 			    </td>
 			);
 		}
-		
+
 		return(
 			<td style={taskStyle} onClick={this.props.toggleTask.bind(this, task)}>{task}</td>	
 		);
