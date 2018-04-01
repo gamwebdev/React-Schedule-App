@@ -9,14 +9,14 @@ export default class CreateTodoList extends React.Component{
 				return(
 					<form onSubmit = {this.handleCreate.bind(this)}>
 						<input type="text" placeholder="what u want to crate!" ref="createInput"/>
-						<button> Create</button>		
+						<button> Create </button>		
 					</form>
 				);
 		}
 
 		handleCreate(e){
 			e.preventDefault();
-			this.props.create.bind(this, this.refs.createInput.value);
+			this.props.create(this.refs.createInput.value);
 			this.refs.createInput.value="";
 		}
 }	
