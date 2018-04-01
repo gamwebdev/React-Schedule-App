@@ -19,7 +19,7 @@ export default class App extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			todos
+			todos:todos
 		};
 	}
 
@@ -27,10 +27,21 @@ export default class App extends React.Component{
 		return(
 			<div>
 				<h1> React ToDos App</h1>
-				<CreateTodoList />
+				<CreateTodoList create={this.create.bind(this)}/>
 				<br />
 				<TodosList todos={this.state.todos} />
 			</div>
 		);
 	}
+
+	create(task){
+		this.state.todos.push({
+			task:task,
+			isCompleted:false
+		});
+		this.setState({
+			todos:this.state.todos
+		});
+	}
+
 }
