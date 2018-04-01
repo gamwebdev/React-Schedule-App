@@ -1,16 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import _ from 'lodash';
 import CreateTodoList from './create-todos.js';
 import TodosList from './todos-list';
 
 const todos = [
 	{
 		task:'make React Tut',
-		isCompleted: true
+		isCompleted: false
 	},
 	{
 		task:'eat dinner',
-		isCompleted: true
+		isCompleted: false
 	}
 ];
 
@@ -29,7 +30,7 @@ export default class App extends React.Component{
 				<h1> React ToDos App</h1>
 				<CreateTodoList create={this.create.bind(this)}/>
 				<br />
-				<TodosList todos={this.state.todos} />
+				<TodosList todos={this.state.todos} toggleTask={this.toggleTask.bind(this)}/>
 			</div>
 		);
 	}
@@ -42,6 +43,12 @@ export default class App extends React.Component{
 		this.setState({
 			todos:this.state.todos
 		});
+	}
+
+	toggleTask(task){
+		const foundTodo = _.find(this.state.todos, todo => todo.task === task);
+		foundTodo.isCompleted = !foundTodo.isCompleted;
+		this.setState({ todos: this.state.todos});
 	}
 
 }

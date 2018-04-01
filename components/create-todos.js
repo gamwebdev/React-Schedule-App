@@ -16,6 +16,7 @@ export default class CreateTodoList extends React.Component{
 
 		handleCreate(e){
 			e.preventDefault();
-			this.props.create(this.refs.createInput.value);
+			this.props.create.bind(this, this.refs.createInput.value);
+			this.refs.createInput.value="";
 		}
 }	
