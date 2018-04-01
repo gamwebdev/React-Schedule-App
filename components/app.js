@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import CreateTodoList from './create-todos.js';
 import TodosList from './todos-list';
 
 const todos = [
@@ -26,6 +27,8 @@ export default class App extends React.Component{
 		return(
 			<div>
 				<h1> React ToDos App</h1>
+				<CreateTodoList />
+				<br />
 				<TodosList todos={this.state.todos} />
 			</div>
 		);
